@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --Red: hsl(14,86%,42%);
 }
 
 a {
@@ -65,4 +66,41 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.add-btn{
+  --btnHeight: 50px;
+  aspect-ratio: 3;
+  height: var(--btnHeight);
+  border: 1px solid var(--Red);
+  border-radius: calc(var(--btnHeight) / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.used{
+  background-color: var(--Red);
+  color: white;
+  justify-content: space-between;
+
+}
+.used>button{
+  height: calc(var(--btnHeight) - 10px);
+  width: calc(var(--btnHeight) - 10px);
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  font-family: monospace;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }

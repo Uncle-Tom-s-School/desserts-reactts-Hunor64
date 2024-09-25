@@ -1,11 +1,22 @@
-import DessertCard from "./components/DessertCard";
+import DessertCard, { DessertCardProps } from "./components/DessertCard";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [desserts, setDesserts] = useState<DessertCardProps[]>([]);
+
+
+  useEffect(() => {
+    fetch("data.json")
+      .then(response => response.json())
+      .then(apiDesserts => {
+        setDesserts(apiDesserts);
+      });
+  },[desserts]);
   return (
     <div>
-      <DessertCard name={"Waffle with Fish"} />
-      <DessertCard name={"Waffle mix of Five"} />
-      <DessertCard name={"Classic Tiramisu"} />
+      {
+      desserts.map(dessert => <DessertCard {...dessert}/>)
+      }
     </div>
   );
 };

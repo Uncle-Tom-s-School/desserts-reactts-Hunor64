@@ -12,8 +12,8 @@ const AdddToCartBtn = () => {
 
   return (
     <> {quantity === 0 ? 
-        <div onClick={increase}>Add to Cart</div> :
-        <div>        
+        <div className="add-btn" onClick={increase}>Add to Cart</div> :
+        <div className="add-btn used">        
         <button onClick={decrease}>-</button>
         {quantity}
         <button onClick={increase}>+</button>
