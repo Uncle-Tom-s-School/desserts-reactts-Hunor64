@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --Red: hsl(14,86%,42%);
+  --Red: hsl(14, 86%, 42%);
 }
 
 a {
@@ -19,6 +19,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -40,9 +41,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -53,14 +56,17 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
 }
-.add-btn{
+
+.add-btn {
   --btnHeight: 50px;
   aspect-ratio: 3;
   height: var(--btnHeight);
@@ -71,14 +77,17 @@ button:focus-visible {
   align-items: center;
   cursor: pointer;
   transition: 0.3s;
+  background-color: white;  
 }
-.used{
+
+.used {
   background-color: var(--Red);
   color: white;
   justify-content: space-between;
 
 }
-.used>button{
+
+.used>button {
   height: calc(var(--btnHeight) - 10px);
   width: calc(var(--btnHeight) - 10px);
   border-radius: 50%;
@@ -92,20 +101,34 @@ button:focus-visible {
   font-family: monospace;
 }
 
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-.dessert-grid{
+
+.dessert-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-max-width: 800px;
-width: 95%;
-margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 800px;
+  width: 95%;
+  margin: auto;
   gap: 20px;
 
 }
-.dessert-card>img{
+
+.dessert-card>img {
   width: 100%;
+  border-radius: 5px;
+}
+
+.dessert-card>.add-btn {
+  position: relative;
+  top: calc(var(--btnHeight) / 2 * -1);
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.dessert-card:has(.used)>img {
+  border: var(--Red) 2px solid;
 }
