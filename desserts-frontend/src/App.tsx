@@ -13,7 +13,7 @@ const App = () => {
       });
   },[desserts]);
   return (
-    <div>
+    <div className="dessert-grid">
       {
       desserts.map(dessert => <DessertCard {...dessert}/>)
       }
