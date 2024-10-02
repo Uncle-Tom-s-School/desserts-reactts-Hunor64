@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { DessertCardProps } from "./DessertCard";
 
-const AdddToCartBtn = () => {
+const AdddToCartBtn = (props:DessertCardProps) => {
   const [quantity, setQuantity] = useState(0);
+
+  const cartctx = useContext(cartctx);
+
+  if (!cartctx) {throw new Error("CartCtx is not defined")
+    
+  }
+  const {cart,setCart} = cartctx;
 
   const increase = () => {
     setQuantity(quantity + 1);
+    setCart([...cart,props]);
   };
   const decrease = () => {
     setQuantity(quantity - 1);
+
   };
 
   return (

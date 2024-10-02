@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import CartItem from "./CartItem";
 
 export type CartItemType = {
@@ -8,7 +8,7 @@ export type CartItemType = {
 
 const Cart = () => {
   const [cart, setCart] = useState<CartItemType[]>([]);
-
+  const cartctx = useContext(CartCtx);
   useEffect(() => {
     setCart([
       {

@@ -1,9 +1,18 @@
 import DessertCard, { DessertCardProps } from "./components/DessertCard";
-import { useEffect, useState } from "react";
 import Cart from "./components/Cart";
+import React, { createContext, useEffect, useState } from "react";
+
+export type CartCtxItem = {
+  cart:DessertCardProps[],
+  setCart: React.Dispatch<React.SetStateAction<DessertCardProps[]>>
+}
+
+export const CartCtx = createContext<DessertCardProps |undefined>(undefined)
 
 const App = () => {
   const [desserts, setDesserts] = useState<DessertCardProps[]>([]);
+  const [cart, setCart] = useState<DessertCardProps[]>([]);
+
 
 
   useEffect(() => {
@@ -14,18 +23,18 @@ const App = () => {
       });
   },[desserts]);
   return (
-    <section className="home">
-    <div>
-        <h1>Desserts</h1>
-        <div className="dessert-grid">
+    <CartCtx.Provider value={{cart:cart,setCart:setCart}}>
+      <section className="home">
+        <div>
+          <h1>Desserts</h1>
+          <div className="dessert-grid">
             {
               desserts.map(dessert => <DessertCard {...dessert}/>)
             }
+          </div>
         </div>
-    </div>
-      <Cart/>
-    </section>
-  )
-};
-
+        <Cart/>
+      </section>
+    </CartCtx.Provider>
+)}
 export default App;
