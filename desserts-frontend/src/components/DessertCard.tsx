@@ -2,7 +2,7 @@ import AdddToCartBtn from "./AdddToCartBtn"
 
 export type DessertCardProps = {
 name: string,
-category: string,
+category?: string,
 price: number,
 image: {
   thumbnail: string,
